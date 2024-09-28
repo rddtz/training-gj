@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://603hw4q6gclf"]
+
+[ext_resource type="Script" path="res://Scripts/particle.gd" id="1_sddwo"]
+[ext_resource type="Texture2D" uid="uid://dvrdg74kbb7kd" path="res://Assets/others/particle.png" id="2_ouec8"]
+
+[node name="ParticlePaper" type="Node2D"]
+script = ExtResource("1_sddwo")
+sprite = ExtResource("2_ouec8")
+min_direction = 45.0
+max_direction = 135.0
+max_rotation = 360.0
+min_speed_rotation = 10.0
+max_speed_rotation = 15.0
+max_scale = 2.0
+min_speed = 100.0
+max_speed = 100.0
+min_life = 60
+max_life = 80
+gravity = true
+gravity_speed = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

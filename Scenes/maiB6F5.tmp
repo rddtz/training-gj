@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdp6cfevopgjl"]
+
+[ext_resource type="PackedScene" uid="uid://603hw4q6gclf" path="res://Scenes/particle_paper.tscn" id="1_2sre6"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(10, 10)
+
+[node name="ParticlePaper" parent="." instance=ExtResource("1_2sre6")]
+position = Vector2(3, 3)
+color = Color(1, 1, 1, 1)
+min_direction = 0.0
+max_direction = 0.0
+min_rotation = 0.0
+max_rotation = 0.0
+rotate = false
+min_scale = 1.0
+max_scale = 1.0
+min_speed = 0.0
+max_speed = 0.0
+min_life = 0
+max_life = 0
+gravity = false
+gravity_speed = 0.0
