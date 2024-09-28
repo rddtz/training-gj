@@ -1,0 +1,12 @@
+#+STARTUP: content
+#+STARTUP: overview
+#+STARTUP: indent
+#+TITLE: Remake do Careca
+
+Jogo para aprender Godot em preparação para a GameJam+.
+
+* Divisão de tarefas:
+- Game Logic: Rayan and Enzo
+- Game Feel: Iuri
+- Level Design: Pedro Henrique
+- Game Art: Alisson
