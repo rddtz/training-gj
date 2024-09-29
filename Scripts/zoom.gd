@@ -8,7 +8,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Global.do_zoom:
 		cam.zoom.x = lerpf(cam.zoom.x, Global.zoom_size, Global.zoom_speed)
 		cam.zoom.y = lerpf(cam.zoom.y, Global.zoom_size, Global.zoom_speed)

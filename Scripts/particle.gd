@@ -57,8 +57,11 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	pass
 	
+	
+func _physics_process(delta: float) -> void:
 	#Movendo a particula
 	position.x += speed_x * delta
 	position.y += speed_y * delta
@@ -80,9 +83,6 @@ func _process(delta: float) -> void:
 	
 	if life_index <= 0:
 		queue_free()
-	
-	
-	
 	
 	
 	
