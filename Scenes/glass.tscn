@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cncp0veaor6hl"]
+
+[ext_resource type="Script" path="res://Scripts/particle.gd" id="1_wrmsq"]
+[ext_resource type="Texture2D" uid="uid://dpaihbsd26bm6" path="res://Assets/player/glasses.png" id="2_5ehn6"]
+
+[node name="Glass" type="Node2D"]
+script = ExtResource("1_wrmsq")
+sprite = ExtResource("2_5ehn6")
+min_direction = 90.0
+max_direction = 90.0
+rotate_bool = true
+min_speed_rotation = 300.0
+max_speed_rotation = 300.0
+min_speed = 180.0
+max_speed = 180.0
+min_life = 500
+max_life = 500
+gravity = true
+gravity_speed = 250.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
