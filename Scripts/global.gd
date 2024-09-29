@@ -1,5 +1,11 @@
 extends Node
 
+var shake := false
+var shake_force := 5.0
+
+var do_zoom := false
+var zoom_speed := .1
+var zoom_size := 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,7 +16,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
+#Funcao que vai criar as particulas
 func create_particles(particles : Resource, min_amount : int, max_amount : int,
 x : float, y: float, min_x : float, max_x : float, min_y : float, max_y : float):
 	
@@ -23,3 +29,13 @@ x : float, y: float, min_x : float, max_x : float, min_y : float, max_y : float)
 		var particle = particles.instantiate()
 		particle.position = Vector2(x + x_temp, y + y_temp)
 		get_tree().current_scene.add_child(particle, true)
+
+
+func screen_shake(force : float):
+	shake = true
+	shake_force = force
+	
+func zoom(size : float, speed : float):
+	do_zoom = true
+	zoom_size = size
+	zoom_speed = speed
