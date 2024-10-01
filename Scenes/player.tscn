@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bjceaim4xm5wi"]
+[gd_scene load_steps=16 format=3 uid="uid://bjceaim4xm5wi"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_f0khx"]
 [ext_resource type="Texture2D" uid="uid://0ai02i5tsntk" path="res://Assets/player/player_fall.png" id="2_a8h5t"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dpaihbsd26bm6" path="res://Assets/player/glasses.png" id="3_wj0op"]
 [ext_resource type="Texture2D" uid="uid://bo5rol8bcjg0p" path="res://Assets/player/player_jump.png" id="4_5shhh"]
 [ext_resource type="Texture2D" uid="uid://chc8vbu7oxf06" path="res://Assets/player/player_walk.png" id="5_pktwv"]
+[ext_resource type="AudioStream" uid="uid://cjafsbmnv7svn" path="res://Assets/sounds/sfx/sfx_fall.wav" id="7_8ui7f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j0rx8"]
 atlas = ExtResource("2_a8h5t")
@@ -91,10 +92,12 @@ sprite_frames = SubResource("SpriteFrames_ulg7w")
 animation = &"glasses"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CapsuleShape2D_xqa3k")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.5, 2.5)
 limit_bottom = 100
 position_smoothing_enabled = true
+
+[node name="killSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_8ui7f")

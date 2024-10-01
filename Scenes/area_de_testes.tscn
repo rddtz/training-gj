@@ -1,10 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://by70oltuwycdy"]
+[gd_scene load_steps=4 format=3 uid="uid://by70oltuwycdy"]
 
-[ext_resource type="Script" path="res://Scripts/testes.gd" id="1_kflok"]
+[ext_resource type="Texture2D" uid="uid://daqqxfi02o8j0" path="res://icon.svg" id="2_hy1ua"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6dify"]
+size = Vector2(604, 20)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4cjt4"]
 
 [node name="AreaDeTestes" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="chao" type="StaticBody2D" parent="."]
 
-[node name="Node2D" type="Node2D" parent="."]
-script = ExtResource("1_kflok")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chao"]
+position = Vector2(0, 11)
+shape = SubResource("RectangleShape2D_6dify")
+
+[node name="TextureRect" type="TextureRect" parent="chao"]
+offset_left = -300.0
+offset_right = 300.0
+offset_bottom = 40.0
+texture = SubResource("PlaceholderTexture2D_4cjt4")
+
+[node name="background" type="TextureRect" parent="."]
+z_index = -1
+offset_left = -302.0
+offset_top = -124.0
+offset_right = 298.0
+offset_bottom = 4.0
+texture = ExtResource("2_hy1ua")
