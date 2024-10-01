@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3i8gm52v0aqp"]
+
+[sub_resource type="GDScript" id="GDScript_fmhd3"]
+script/source = "extends Area2D
+
+func _on_body_entered(body: Node2D) -> void:
+	$Timer.start()
+	
+func _on_timer_timeout() -> void:
+	# da reload na cena main
+	get_tree().reload_current_scene()
+"
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_r81re"]
+distance = -81.0
+
+[node name="Killzone" type="Area2D"]
+script = SubResource("GDScript_fmhd3")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("WorldBoundaryShape2D_r81re")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
