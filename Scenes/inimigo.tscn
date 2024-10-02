@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://clyxhwdcfskig"]
+[gd_scene load_steps=23 format=3 uid="uid://clyxhwdcfskig"]
 
 [ext_resource type="Script" path="res://Scripts/inimigo.gd" id="1_gujwf"]
 [ext_resource type="Texture2D" uid="uid://d3g35evbx6mpb" path="res://Assets/enemys/enemy_die.png" id="2_rs11e"]
 [ext_resource type="Texture2D" uid="uid://dxkpkt7ymnow0" path="res://Assets/enemys/enemy_idle.png" id="3_mxp4r"]
 [ext_resource type="Texture2D" uid="uid://c877tf8q3j71v" path="res://Assets/enemys/enemy_dead.png" id="4_nt8dj"]
 [ext_resource type="Texture2D" uid="uid://bwx0lyn6tf2ux" path="res://Assets/enemys/enemy_walk.png" id="5_ibot6"]
+[ext_resource type="PackedScene" uid="uid://bsc465m5wra2p" path="res://Scenes/grade_enemy.tscn" id="6_wimkt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tjfac"]
 atlas = ExtResource("2_rs11e")
@@ -128,9 +129,10 @@ height = 32.0
 radius = 7.0
 height = 28.0
 
-[node name="Inimigo_corajoso" type="CharacterBody2D"]
+[node name="Inimigo_corajoso" type="CharacterBody2D" node_paths=PackedStringArray("grade_node")]
 collision_layer = 4
 script = ExtResource("1_gujwf")
+grade_node = NodePath("GradeEnemy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2qbeu")
@@ -147,5 +149,9 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dano"]
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_n70ir")
+
+[node name="GradeEnemy" parent="." node_paths=PackedStringArray("enemy") instance=ExtResource("6_wimkt")]
+position = Vector2(0, -24)
+enemy = NodePath("..")
 
 [connection signal="body_entered" from="Dano" to="." method="_on_dano_body_entered"]

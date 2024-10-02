@@ -1,6 +1,6 @@
 extends CharacterBody2D
 # Called when the node enters the scene tree for the first time.
-const SPEED = 60
+const SPEED = 60 #60
 var direction := 1
 
 @onready var player: CharacterBody2D = %Player
@@ -12,8 +12,12 @@ const MOVEMENT_SPEED = Vector2(200.0, -400.0)
 const ACCELERATION = 15
 const FRICTION = 30
 
-var vida := 3
+@export var grade_node : Node2D
+var vida := 1
 var maxvida := 3
+
+func _ready() -> void:
+	grade_node.change_grade()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -23,6 +27,7 @@ func _physics_process(delta: float) -> void:
 	if player.position.x < position.x: direction = -1
 	else: if player.position.x > position.x: direction = 1
 	else: direction = 0
+	
 	
 	if direction: velocity.x = velocity.move_toward(MOVEMENT_SPEED * direction, ACCELERATION).x
 	
@@ -39,4 +44,7 @@ func _physics_process(delta: float) -> void:
 func _on_dano_body_entered(body: Node2D) -> void:
 	# Ativar o dano
 	print("dano")
-	if body.name == 'Player': pass # Replace with function body.
+	if body.name == 'Player': 
+		if vida < maxvida:
+			vida += 1
+		grade_node.up()
