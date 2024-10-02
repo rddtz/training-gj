@@ -5,9 +5,10 @@ script/source = "extends Area2D
 var glass = preload(\"res://Scenes/glass.tscn\")
 	
 func _on_body_entered(body: Node2D) -> void:
-	%Player/killSound.play()
-	Global.create_particles(glass, 1, 1, $\"../Player\".position.x, $\"../Player\".position.y, 0, 0, 0, 0)
-	$Timer.start()
+	if body.name == \"Player\": 
+		%Player/killSound.play()
+		Global.create_particles(glass, 1, 1, $\"../Player\".position.x, $\"../Player\".position.y, 0, 0, 0, 0)
+		$Timer.start()
 	
 func _on_timer_timeout() -> void:
 	# da reload na cena main
