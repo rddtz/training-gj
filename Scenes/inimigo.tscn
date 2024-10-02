@@ -151,7 +151,7 @@ position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_n70ir")
 
 [node name="GradeEnemy" parent="." node_paths=PackedStringArray("enemy") instance=ExtResource("6_wimkt")]
-position = Vector2(0, -24)
+position = Vector2(0, -27)
 enemy = NodePath("..")
 
 [connection signal="body_entered" from="Dano" to="." method="_on_dano_body_entered"]

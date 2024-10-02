@@ -21,9 +21,11 @@ func change_grade():
 func up():
 	change_grade()
 	arrow_sprite.play("up")
-	animation_player.play("dissolve")
+	animation_player.stop()
+	animation_player.play("dissolve_2.0")
 	
 func down():
 	change_grade()
 	arrow_sprite.play("down")
+	animation_player.stop()
 	animation_player.play("dissolve")
