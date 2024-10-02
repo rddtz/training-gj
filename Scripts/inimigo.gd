@@ -4,9 +4,9 @@ const SPEED = 60
 var direction := 1
 
 @onready var player: CharacterBody2D = %Player
-@onready var parede_esq: RayCast2D = $ParedeEsq
-@onready var parede_dir: RayCast2D = $ParedeDir
-@onready var chao: RayCast2D = $chao
+#@onready var parede_esq: RayCast2D = $ParedeEsq
+#@onready var parede_dir: RayCast2D = $ParedeDir
+#@onready var chao: RayCast2D = $chao
 
 const MOVEMENT_SPEED = Vector2(200.0, -400.0)
 const ACCELERATION = 15
