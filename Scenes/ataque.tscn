@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://s2pwihpingb1"]
+
+[ext_resource type="Texture2D" uid="uid://bqqtlsw53nhvw" path="res://Assets/others/grade-placeholder.png" id="1_j2i0p"]
+[ext_resource type="Script" path="res://Scripts/ataque.gd" id="1_ps2ib"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqwn6"]
+size = Vector2(24.066, 14.1687)
+
+[node name="ataque" type="Area2D"]
+position = Vector2(18, 16)
+rotation = -1.24966
+collision_mask = 5
+script = ExtResource("1_ps2ib")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.0469189, 0.0254841)
+rotation = 2.7646
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_wqwn6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.24966
+texture = ExtResource("1_j2i0p")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

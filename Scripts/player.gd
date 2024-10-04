@@ -19,6 +19,22 @@ func _physics_process(delta: float) -> void:
 	playSprite(velocity, direction)
 	move_and_slide()
 
+func get_mouse_angle() -> float:
+	var theta := atan2(get_local_mouse_position().y, get_local_mouse_position().x)
+	return theta
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("attack"):
+		novo_ataque()
+
+func novo_ataque():
+	var ataque := preload("res://Scenes/ataque.tscn")
+	var ataque_node := ataque.instantiate()
+	get_tree().current_scene.add_child(ataque_node, true)
+	ataque_node.position = position
+	ataque_node.angle = get_mouse_angle()
+	ataque_node.rotation = ataque_node.angle + PI / 2
+
 func playSprite(velocity: Vector2, direction: int) -> void:
 	# flipa sprite caso estiver andando pra esquerda
 	if direction == -1: $AnimatedSprite2D.flip_h = true
