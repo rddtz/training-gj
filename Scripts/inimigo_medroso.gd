@@ -9,7 +9,8 @@ const MOVEMENT_SPEED = Vector2(200.0, -400.0)
 const ACCELERATION = 15
 const FRICTION = 30
 
-@export var grade_node : Node2D
+@onready var grade_node: Node2D = $GradeEnemy
+#@export var grade_node : Node2D
 var vida := 1
 var maxvida := 3
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -24,8 +25,8 @@ func _physics_process(delta: float) -> void:
 	
 	if not is_on_floor(): velocity += get_gravity() * delta
 	
-	if player.position.x < position.x: direction = -1
-	else: if player.position.x > position.x: direction = 1
+	if player.position.x < position.x and position.x - player.position.x < 150: direction = 1
+	else: if player.position.x > position.x and player.position.x - position.x < 150: direction = -1
 	else: direction = 0
 	
 	if direction: velocity.x = velocity.move_toward(MOVEMENT_SPEED * direction, ACCELERATION).x

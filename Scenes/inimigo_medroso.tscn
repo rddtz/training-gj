@@ -1,0 +1,256 @@
+[gd_scene load_steps=29 format=3 uid="uid://f124gmuslh7o"]
+
+[ext_resource type="Script" path="res://Scripts/inimigo_medroso.gd" id="1_758i6"]
+[ext_resource type="Texture2D" uid="uid://0f30iqb4kgmt" path="res://Assets/enemys/enemy_die_2.png" id="2_og22q"]
+[ext_resource type="Shader" path="res://Shaders/blink.gdshader" id="2_pn3cj"]
+[ext_resource type="Texture2D" uid="uid://pm3dkw2atf7" path="res://Assets/enemys/enemy_idle_2.png" id="3_pn5pd"]
+[ext_resource type="Texture2D" uid="uid://blc4et6ksemk2" path="res://Assets/enemys/enemy_dead_2.png" id="4_ssgep"]
+[ext_resource type="Texture2D" uid="uid://btrb6j5kpg07u" path="res://Assets/enemys/enemy_walk_2.png" id="5_obpa4"]
+[ext_resource type="PackedScene" uid="uid://bsc465m5wra2p" path="res://Scenes/grade_enemy.tscn" id="7_so7ol"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4qq4x"]
+shader = ExtResource("2_pn3cj")
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_intensity = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cuoqs"]
+atlas = ExtResource("2_og22q")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfm4e"]
+atlas = ExtResource("2_og22q")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8a4a"]
+atlas = ExtResource("2_og22q")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fv845"]
+atlas = ExtResource("3_pn5pd")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_se7ae"]
+atlas = ExtResource("3_pn5pd")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_638of"]
+atlas = ExtResource("4_ssgep")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4beo"]
+atlas = ExtResource("4_ssgep")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct4s0"]
+atlas = ExtResource("4_ssgep")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iefdg"]
+atlas = ExtResource("4_ssgep")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whw4g"]
+atlas = ExtResource("4_ssgep")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fnvr"]
+atlas = ExtResource("4_ssgep")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kn2qw"]
+atlas = ExtResource("5_obpa4")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xeoq2"]
+atlas = ExtResource("5_obpa4")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2qbeu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cuoqs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfm4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8a4a")
+}],
+"loop": true,
+"name": &"caindo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fv845")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_se7ae")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_638of")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4beo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ct4s0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iefdg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whw4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fnvr")
+}],
+"loop": true,
+"name": &"reprovado",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kn2qw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeoq2")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e8jc7"]
+radius = 8.0
+height = 32.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n70ir"]
+radius = 7.0
+height = 28.0
+
+[sub_resource type="Animation" id="Animation_el24n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/blink_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:material:shader_parameter/blink_intensity")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_y1gyr"]
+resource_name = "hit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/blink_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:material:shader_parameter/blink_intensity")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_qo8fm"]
+resource_name = "up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/blink_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 1, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:material:shader_parameter/blink_intensity")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d2r4e"]
+_data = {
+"RESET": SubResource("Animation_el24n"),
+"hit": SubResource("Animation_y1gyr"),
+"up": SubResource("Animation_qo8fm")
+}
+
+[node name="Inimigo_medroso" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_758i6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_4qq4x")
+sprite_frames = SubResource("SpriteFrames_2qbeu")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Física" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_e8jc7")
+
+[node name="Dano" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dano"]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_n70ir")
+
+[node name="GradeEnemy" parent="." node_paths=PackedStringArray("enemy") instance=ExtResource("7_so7ol")]
+position = Vector2(0, -27)
+enemy = NodePath("..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_d2r4e")
+}
+
+[connection signal="body_entered" from="Dano" to="." method="_on_dano_body_entered"]

@@ -135,8 +135,8 @@ height = 32.0
 radius = 7.0
 height = 28.0
 
-[sub_resource type="Animation" id="Animation_y1gyr"]
-resource_name = "hit"
+[sub_resource type="Animation" id="Animation_el24n"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -144,10 +144,10 @@ tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/blink_inten
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [1.0, 0.0]
+"values": [0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -162,8 +162,8 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_el24n"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_y1gyr"]
+resource_name = "hit"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -171,10 +171,10 @@ tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/blink_inten
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0]
+"values": [1.0, 0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -231,7 +231,7 @@ grade_node = NodePath("GradeEnemy")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_4qq4x")
 sprite_frames = SubResource("SpriteFrames_2qbeu")
-animation = &"idle"
+animation = &"walk"
 autoplay = "idle"
 
 [node name="Física" type="CollisionShape2D" parent="."]
