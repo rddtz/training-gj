@@ -15,6 +15,8 @@ const FRICTION = 30
 @export var grade_node : Node2D
 var vida := 1
 var maxvida := 3
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 
 func _ready() -> void:
 	#grade_node.change_grade()
@@ -48,4 +50,8 @@ func _on_dano_body_entered(body: Node2D) -> void:
 	if body.name == 'Player': 
 		if vida < maxvida:
 			vida += 1
+		#Rodando a animacao de aparecer a nota
 		grade_node.up()
+		#Rodando a animacao de deixar verde
+		animation_player.stop()
+		animation_player.play("up")
