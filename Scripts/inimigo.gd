@@ -28,6 +28,10 @@ func _physics_process(delta: float) -> void:
 	else: if player.position.x > position.x: direction = 1
 	else: direction = 0
 	
+	if absi(player.position.x - position.x) < 1 and vida == maxvida: 
+		direction = 0
+		velocity.x = 0
+	
 	if direction: velocity.x = velocity.move_toward(MOVEMENT_SPEED * direction, ACCELERATION).x
 	else: velocity.x = 0
 	

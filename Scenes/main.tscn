@@ -26,6 +26,6 @@ animation = &"fall"
 position = Vector2(-111, -29)
 
 [node name="Inimigo_medroso" parent="." instance=ExtResource("6_kn8rk")]
-position = Vector2(-1, -22)
+position = Vector2(49, -56)
 
 [editable path="Player"]
