@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdp6cfevopgjl"]
+[gd_scene load_steps=6 format=3 uid="uid://bdp6cfevopgjl"]
 
+[ext_resource type="Script" path="res://Scripts/testes.gd" id="1_2sxuy"]
 [ext_resource type="PackedScene" uid="uid://by70oltuwycdy" path="res://Scenes/area_de_testes.tscn" id="1_pqa6t"]
 [ext_resource type="PackedScene" uid="uid://bjceaim4xm5wi" path="res://Scenes/player.tscn" id="2_gw71t"]
 [ext_resource type="PackedScene" uid="uid://c3i8gm52v0aqp" path="res://Scenes/Killzone.tscn" id="3_x5q7e"]
 [ext_resource type="PackedScene" uid="uid://clyxhwdcfskig" path="res://Scenes/inimigo.tscn" id="4_ca0fm"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_2sxuy")
+scene_path = "res://Scenes/main2.tscn"
 
 [node name="AreaDeTestes" parent="." instance=ExtResource("1_pqa6t")]
 

@@ -7,6 +7,8 @@ var do_zoom := false
 var zoom_speed := .1
 var zoom_size := 2
 
+var transition_resource := preload("res://Scenes/hex_transition.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -39,3 +41,9 @@ func zoom(size : float, speed : float):
 	do_zoom = true
 	zoom_size = size
 	zoom_speed = speed
+
+func transition(next_scene : String):
+	var tran := transition_resource.instantiate()
+	tran.next_scene = next_scene
+	get_tree().current_scene.add_child(tran, true)
+	

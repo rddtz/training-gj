@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjlrfqnnyu4q0"]
+
+[ext_resource type="Script" path="res://Scripts/testes.gd" id="1_ha8qv"]
+[ext_resource type="PackedScene" uid="uid://by70oltuwycdy" path="res://Scenes/area_de_testes.tscn" id="1_o4otq"]
+[ext_resource type="PackedScene" uid="uid://bjceaim4xm5wi" path="res://Scenes/player.tscn" id="2_g1g6v"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ha8qv")
+scene_path = "res://Scenes/main.tscn"
+
+[node name="AreaDeTestes" parent="." instance=ExtResource("1_o4otq")]
+
+[node name="Player" parent="." instance=ExtResource("2_g1g6v")]
+unique_name_in_owner = true
+position = Vector2(1, -44)
+
+[node name="AnimatedSprite2D" parent="Player" index="0"]
+animation = &"fall"
+
+[editable path="Player"]

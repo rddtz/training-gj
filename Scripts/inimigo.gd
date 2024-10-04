@@ -17,7 +17,8 @@ var vida := 1
 var maxvida := 3
 
 func _ready() -> void:
-	grade_node.change_grade()
+	#grade_node.change_grade()
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
