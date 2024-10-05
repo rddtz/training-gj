@@ -7,10 +7,15 @@ var do_zoom := false
 var zoom_speed := .1
 var zoom_size := 2
 
+var paused = false
+@onready var pause_menu: Control = $CanvasLayer/Pause
+
+
 #var transition_resource := preload("res://Scenes/hex_transition.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	paused= false
 	pass # Replace with function body.
 
 

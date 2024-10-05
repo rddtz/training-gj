@@ -1,0 +1,84 @@
+[gd_scene load_steps=9 format=3 uid="uid://crulsaatakjiy"]
+
+[ext_resource type="Script" path="res://Scripts/controles.gd" id="1_nsmek"]
+[ext_resource type="Texture2D" uid="uid://pju15omdy26r" path="res://Assets/others/controles.png" id="2_2l6f1"]
+[ext_resource type="FontFile" uid="uid://dwy8mkuhy8rpq" path="res://Assets/fonts/Pixellari.ttf" id="3_u6g63"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t66qc"]
+texture = ExtResource("2_2l6f1")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k5of5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xk7ui"]
+bg_color = Color(0.821789, 0.821789, 0.821788, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mtaag"]
+bg_color = Color(0.552956, 0.552956, 0.552955, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k8727"]
+bg_color = Color(1, 1, 1, 1)
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+anti_aliasing_size = 0.13
+
+[node name="Controles" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nsmek")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_t66qc")
+
+[node name="Volta" type="Button" parent="."]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 514.0
+offset_right = 312.0
+offset_bottom = 599.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_u6g63")
+theme_override_font_sizes/font_size = 43
+theme_override_styles/focus = SubResource("StyleBoxEmpty_k5of5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xk7ui")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mtaag")
+theme_override_styles/normal = SubResource("StyleBoxFlat_k8727")
+text = "Voltar"
+
+[connection signal="pressed" from="Volta" to="." method="_on_volta_pressed"]

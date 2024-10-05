@@ -17,6 +17,7 @@ position = Vector2(-186, 17)
 [node name="Player" parent="." instance=ExtResource("2_gw71t")]
 unique_name_in_owner = true
 position = Vector2(-149, 23)
+slide_on_ceiling = false
 
 [node name="AnimatedSprite2D" parent="Player" index="0"]
 animation = &"fall"
