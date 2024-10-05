@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://x77gawhb2rk8"]
+
+[ext_resource type="Script" path="res://Scripts/ui.gd" id="1_pogjy"]
+[ext_resource type="Texture2D" uid="uid://37mkrvx6pma8" path="res://Assets/ui/retrato vazio.png" id="1_tfkoy"]
+[ext_resource type="Texture2D" uid="uid://dfksau1kx6lqp" path="res://Assets/ui/retrato_mask.png" id="2_f8d1g"]
+[ext_resource type="Texture2D" uid="uid://fbdseskvktc" path="res://Assets/ui/life_down.png" id="4_7k6hb"]
+[ext_resource type="Texture2D" uid="uid://cqonh3tm50yof" path="res://Assets/ui/life_mask.png" id="5_sicp5"]
+[ext_resource type="Texture2D" uid="uid://cqcs8k2pevcs3" path="res://Assets/ui/life.png" id="6_rtjx7"]
+[ext_resource type="FontFile" uid="uid://b614qjuw34djh" path="res://Assets/fonts/Pixel-UniCode.ttf" id="7_jfbi0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d8031"]
+font = ExtResource("7_jfbi0")
+font_size = 32
+
+[node name="UI" type="Node2D"]
+script = ExtResource("1_pogjy")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Scale" type="Node2D" parent="CanvasLayer"]
+
+[node name="RetratoFundo" type="Sprite2D" parent="CanvasLayer/Scale"]
+position = Vector2(48, 48)
+texture = ExtResource("1_tfkoy")
+
+[node name="RetratoMask" type="Sprite2D" parent="CanvasLayer/Scale/RetratoFundo"]
+clip_children = 1
+texture = ExtResource("2_f8d1g")
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer/Scale/RetratoFundo/RetratoMask"]
+position = Vector2(0, 38)
+scale = Vector2(4, 4)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Scale/RetratoFundo/RetratoMask/Node2D"]
+
+[node name="VidaFundo" type="Sprite2D" parent="CanvasLayer/Scale"]
+position = Vector2(189, 48)
+texture = ExtResource("4_7k6hb")
+
+[node name="VidaMask" type="Sprite2D" parent="CanvasLayer/Scale/VidaFundo"]
+clip_children = 1
+texture = ExtResource("5_sicp5")
+
+[node name="VidaBarra" type="Sprite2D" parent="CanvasLayer/Scale/VidaFundo/VidaMask"]
+position = Vector2(-98, -11)
+scale = Vector2(1e-05, 1)
+texture = ExtResource("6_rtjx7")
+centered = false
+
+[node name="Label" type="Label" parent="CanvasLayer/Scale"]
+offset_left = 89.0
+offset_top = 6.0
+offset_right = 161.0
+offset_bottom = 42.0
+text = "STRESS"
+label_settings = SubResource("LabelSettings_d8031")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdp6cfevopgjl"]
+[gd_scene load_steps=8 format=3 uid="uid://bdp6cfevopgjl"]
 
 [ext_resource type="Script" path="res://Scripts/testes.gd" id="1_2sxuy"]
 [ext_resource type="PackedScene" uid="uid://wwvf1u6me303" path="res://Scenes/mapa.tscn" id="2_c8fob"]
@@ -6,10 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://c3i8gm52v0aqp" path="res://Scenes/Killzone.tscn" id="3_x5q7e"]
 [ext_resource type="PackedScene" uid="uid://clyxhwdcfskig" path="res://Scenes/inimigo_corajoso.tscn" id="4_ca0fm"]
 [ext_resource type="PackedScene" uid="uid://f124gmuslh7o" path="res://Scenes/inimigo_medroso.tscn" id="6_kn8rk"]
+[ext_resource type="PackedScene" uid="uid://x77gawhb2rk8" path="res://Scenes/ui.tscn" id="7_y7lvw"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_2sxuy")
 scene_path = "res://Scenes/main2.tscn"
+player = NodePath("Player")
 
 [node name="Mapa" parent="." instance=ExtResource("2_c8fob")]
 position = Vector2(-186, 17)
@@ -28,5 +30,9 @@ position = Vector2(-20, -29)
 
 [node name="Inimigo_medroso" parent="." instance=ExtResource("6_kn8rk")]
 position = Vector2(232, -59)
+
+[node name="UI" parent="." node_paths=PackedStringArray("player_sprite", "player") instance=ExtResource("7_y7lvw")]
+player_sprite = NodePath("../Player/AnimatedSprite2D")
+player = NodePath("../Player")
 
 [editable path="Player"]

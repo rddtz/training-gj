@@ -55,3 +55,5 @@ func _on_dano_body_entered(body: Node2D) -> void:
 		#Rodando a animacao de deixar verde
 		animation_player.stop()
 		animation_player.play("up")
+		#Screenshake
+		Global.screen_shake(10.0)

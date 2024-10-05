@@ -3,6 +3,7 @@ extends Area2D
 var speed := 300
 var angle := 0.0
 @onready var sprite_2d: Sprite2D = $Sprite2D
+var particles := preload("res://Scenes/particle_paper.tscn")
 
 func move(delta: float):
 	sprite_2d.rotate(0.2)	
@@ -10,6 +11,7 @@ func move(delta: float):
 	position.y += sin(angle) * speed * delta
 
 func destroy():
+	Global.create_particles(particles, 5, 5, position.x, position.y, 0, 0, 0, 0)
 	queue_free()
 
 func _process(delta: float) -> void:

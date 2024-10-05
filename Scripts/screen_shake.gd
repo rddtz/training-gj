@@ -10,16 +10,16 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	if Global.shake:
 		shake = Global.shake_force
 		Global.shake = false
 	
 	if shake != 0.0:
 		cam.offset = Vector2(randf_range(-shake, shake), randf_range(-shake, shake))
-		shake *= .95 * delta
+		shake *= .95
 	else:
 		cam.offset = Vector2(0, 0)
+
+func _physics_process(delta: float) -> void:
+	pass

@@ -4,6 +4,9 @@ const MOVEMENT_SPEED = Vector2(200.0, -400.0)
 const ACCELERATION = 15 
 const FRICTION = 30
 
+var stress_max := 100
+var stress_index := 0
+
 func _physics_process(delta: float) -> void:
 	# adiciona a gravidade
 	if not is_on_floor(): velocity += get_gravity() * delta

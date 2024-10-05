@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bjceaim4xm5wi"]
+[gd_scene load_steps=18 format=3 uid="uid://bjceaim4xm5wi"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_f0khx"]
 [ext_resource type="Texture2D" uid="uid://0ai02i5tsntk" path="res://Assets/player/player_fall.png" id="2_a8h5t"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bo5rol8bcjg0p" path="res://Assets/player/player_jump.png" id="4_5shhh"]
 [ext_resource type="Texture2D" uid="uid://chc8vbu7oxf06" path="res://Assets/player/player_walk.png" id="5_pktwv"]
 [ext_resource type="AudioStream" uid="uid://cjafsbmnv7svn" path="res://Assets/sounds/sfx/sfx_fall.wav" id="7_8ui7f"]
+[ext_resource type="PackedScene" uid="uid://bta111bxbgh7p" path="res://Scenes/screen_shake.tscn" id="7_aqd8r"]
+[ext_resource type="PackedScene" uid="uid://bmcyiup8rwx72" path="res://Scenes/zoom.tscn" id="8_68l8d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j0rx8"]
 atlas = ExtResource("2_a8h5t")
@@ -97,10 +99,16 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_xqa3k")
 
+[node name="killSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_8ui7f")
+
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2.5, 2.5)
+zoom = Vector2(2, 2)
 limit_bottom = 100
 position_smoothing_enabled = true
 
-[node name="killSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_8ui7f")
+[node name="Zoom" parent="Camera2D" node_paths=PackedStringArray("cam") instance=ExtResource("8_68l8d")]
+cam = NodePath("..")
+
+[node name="ScreenShake" parent="Camera2D" node_paths=PackedStringArray("cam") instance=ExtResource("7_aqd8r")]
+cam = NodePath("..")
