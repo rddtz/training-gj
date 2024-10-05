@@ -12,7 +12,7 @@ func _on_body_entered(body: Node2D) -> void:
 	
 func _on_timer_timeout() -> void:
 	# da reload na cena main
-	get_tree().reload_current_scene()
+	Global.transition_diamond(\"\", 1)
 "
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_r81re"]

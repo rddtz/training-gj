@@ -28,4 +28,4 @@ func down():
 	change_grade()
 	arrow_sprite.play("down")
 	animation_player.stop()
-	animation_player.play("dissolve")
+	animation_player.play("dissolve_2.0")

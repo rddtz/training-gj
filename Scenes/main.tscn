@@ -16,7 +16,7 @@ position = Vector2(-186, 17)
 
 [node name="Player" parent="." instance=ExtResource("2_gw71t")]
 unique_name_in_owner = true
-position = Vector2(1, -44)
+position = Vector2(-149, 23)
 
 [node name="AnimatedSprite2D" parent="Player" index="0"]
 animation = &"fall"
@@ -24,9 +24,9 @@ animation = &"fall"
 [node name="Killzone" parent="." instance=ExtResource("3_x5q7e")]
 
 [node name="Inimigo_corajoso" parent="." instance=ExtResource("4_ca0fm")]
-position = Vector2(-111, -29)
+position = Vector2(-20, -29)
 
 [node name="Inimigo_medroso" parent="." instance=ExtResource("6_kn8rk")]
-position = Vector2(49, -56)
+position = Vector2(232, -59)
 
 [editable path="Player"]

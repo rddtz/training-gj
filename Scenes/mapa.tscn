@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://wwvf1u6me303"]
 
-[ext_resource type="Texture2D" uid="uid://0ygqa5nfm6un" path="res://Assets/tiles_teste/tiles.png" id="1_f3f8e"]
+[ext_resource type="Texture2D" uid="uid://0ygqa5nfm6un" path="res://Scenes/tiles_teste/tiles.png" id="1_f3f8e"]
 [ext_resource type="PackedScene" uid="uid://c3i8gm52v0aqp" path="res://Scenes/Killzone.tscn" id="2_q6htg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_an7dp"]

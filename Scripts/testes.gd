@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 		click = false
 
 	if Input.is_key_pressed(KEY_J) && !click2:
-		Global.transition(scene_path)
+		Global.transition_hex(scene_path, 0)
 		click2 = true
 	
 	if !Input.is_key_pressed(KEY_J):
