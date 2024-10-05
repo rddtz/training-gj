@@ -10,6 +10,25 @@ shader_parameter/pixel_size = 30.0
 
 [sub_resource type="Animation" id="Animation_pq5nf"]
 length = 0.001
+<<<<<<< HEAD
+=======
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_k0txd"]
+resource_name = "transition"
+length = 2.5
+>>>>>>> e3bd7dcc8fc4453d38a24aede0e99d6258fcac6b
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

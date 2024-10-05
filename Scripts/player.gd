@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const MOVEMENT_SPEED = Vector2(200.0, -400.0)
-const ACCELERATION = 15 
+const ACCELERATION = 30 
 const FRICTION = 30
 
 var stress_max := 100
