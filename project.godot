@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Global="*res://Scripts/global.gd"
 HexTransition="*res://Scenes/hex_transition.tscn"
 DiamondTransition="*res://Scenes/diamond_transition.tscn"
+WhiteTransition="*res://Scenes/white_transition.tscn"
 
 [input]
 

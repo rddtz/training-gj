@@ -52,3 +52,6 @@ func transition_hex(next_scene : String, reset : bool):
 	
 func transition_diamond(next_scene : String, reset : bool):
 	DiamondTransition.fade_in(next_scene, reset)
+	
+func transition_white(next_scene : String, reset : bool):
+	WhiteTransition.fade_in(next_scene, reset)
