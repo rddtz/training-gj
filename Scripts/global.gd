@@ -8,7 +8,7 @@ var zoom_speed := .1
 var zoom_size := 2
 
 var paused = false
-#@onready var pause_menu: Control = $CanvasLayer/Pause
+var in_game = false
 
 
 #var transition_resource := preload("res://Scenes/hex_transition.tscn")

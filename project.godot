@@ -19,9 +19,10 @@ config/icon="res://icon.svg"
 
 Global="*res://Scripts/global.gd"
 HexTransition="*res://Scenes/hex_transition.tscn"
-WhiteTransition="*res://Scenes/white_transition.tscn"
 DiamondTransition="*res://Scenes/diamond_transition.tscn"
+WhiteTransition="*res://Scenes/white_transition.tscn"
 Music="*res://Scenes/music.tscn"
+MenuPause="*res://Scenes/menu_pause.tscn"
 
 [input]
 

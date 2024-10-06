@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c3i8gm52v0aqp" path="res://Scenes/Killzone.tscn" id="3_x5q7e"]
 [ext_resource type="PackedScene" uid="uid://clyxhwdcfskig" path="res://Scenes/inimigo_corajoso.tscn" id="4_ca0fm"]
 [ext_resource type="PackedScene" uid="uid://f124gmuslh7o" path="res://Scenes/inimigo_medroso.tscn" id="6_kn8rk"]
-[ext_resource type="PackedScene" uid="uid://x77gawhb2rk8" path="res://Scenes/ui.tscn" id="7_y7lvw"]
+[ext_resource type="PackedScene" path="res://Scenes/ui.tscn" id="7_y7lvw"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_2sxuy")
@@ -18,10 +18,12 @@ position = Vector2(-186, 17)
 
 [node name="Killzone" parent="." instance=ExtResource("3_x5q7e")]
 
-[node name="Inimigo_corajoso" parent="." instance=ExtResource("4_ca0fm")]
+[node name="Inimigos" type="Node" parent="."]
+
+[node name="Inimigo_corajoso" parent="Inimigos" instance=ExtResource("4_ca0fm")]
 position = Vector2(-20, -29)
 
-[node name="Inimigo_medroso" parent="." instance=ExtResource("6_kn8rk")]
+[node name="Inimigo_medroso" parent="Inimigos" instance=ExtResource("6_kn8rk")]
 position = Vector2(232, -59)
 
 [node name="Player" parent="." instance=ExtResource("2_gw71t")]

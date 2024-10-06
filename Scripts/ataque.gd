@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Inimigo_medroso" or body.name == "Inimigo_corajoso":
 		if body.vida > 0:
-			body.vida -= 1
+			body.vida -= 1     
 			body.grade_node.down()
 			body.animation_player.stop()
 			body.animation_player.play("hit")
