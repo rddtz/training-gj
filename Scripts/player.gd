@@ -12,6 +12,8 @@ var stress_index := 0
 var exploded := false
 var particles_death := preload("res://Scenes/death_particle.tscn")
 @onready var reset_timer: Timer = $ResetTimer
+@onready var death_sound: AudioStreamPlayer2D = $DeathSound
+var death_sound_played := false
 
 func _physics_process(delta: float) -> void:
 	# adiciona a gravidade
@@ -62,6 +64,9 @@ func playSprite(velocity: Vector2, direction: int) -> void:
 
 func death():
 	if stress_index >= stress_max && !exploded:
+		if !death_sound_played:
+			death_sound.play()
+			death_sound_played = true
 		Global.zoom(3, .1)
 		Global.screen_shake(10)
 		animated_sprite_2d.modulate = Color.RED

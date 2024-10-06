@@ -21,6 +21,7 @@ Global="*res://Scripts/global.gd"
 HexTransition="*res://Scenes/hex_transition.tscn"
 WhiteTransition="*res://Scenes/white_transition.tscn"
 DiamondTransition="*res://Scenes/diamond_transition.tscn"
+Music="*res://Scenes/music.tscn"
 
 [input]
 

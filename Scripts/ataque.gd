@@ -4,6 +4,7 @@ var speed := 300
 var angle := 0.0
 @onready var sprite_2d: Sprite2D = $Sprite2D
 var particles := preload("res://Scenes/particle_paper.tscn")
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func move(delta: float):
 	sprite_2d.rotate(0.2)	
@@ -12,7 +13,7 @@ func move(delta: float):
 
 func destroy():
 	Global.create_particles(particles, 5, 5, position.x, position.y, 0, 0, 0, 0)
-	queue_free()
+	animation_player.play("destroy")
 
 func _process(delta: float) -> void:
 	move(delta)

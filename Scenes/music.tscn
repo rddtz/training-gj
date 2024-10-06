@@ -5,4 +5,5 @@
 [node name="Music" type="AudioStreamPlayer"]
 stream = ExtResource("1_kv5m4")
 autoplay = true
+bus = &"Music"
 parameters/looping = false
