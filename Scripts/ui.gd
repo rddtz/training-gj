@@ -20,6 +20,7 @@ func _process(delta: float) -> void:
 	animated_sprite_2d.sprite_frames = player_sprite.sprite_frames
 	animated_sprite_2d.animation = player_sprite.animation
 	animated_sprite_2d.frame = player_sprite.frame
+	animated_sprite_2d.modulate = player_sprite.modulate
 	#animated_sprite_2d.speed_scale = player_sprite.speed_scale
 	life()
 

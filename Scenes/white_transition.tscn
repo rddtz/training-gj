@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://brpqvjr5uxs4d"]
+[gd_scene load_steps=6 format=3 uid="uid://brpqvjr5uxs4d"]
 
 [ext_resource type="Script" path="res://Scripts/hex_transition.gd" id="1_pylo4"]
 
@@ -19,7 +19,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_snep8"]
 resource_name = "transition"
-length = 2.5
+length = 3.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -39,6 +39,42 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(1, 1.1, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"change_scene"
+}, {
+"args": [],
+"method": &"zoom_in"
+}, {
+"args": [],
+"method": &"zoom_out"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ehqjd"]
+resource_name = "first_transition"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(1),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -50,6 +86,7 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jvr00"]
 _data = {
 "RESET": SubResource("Animation_ea8dv"),
+"first_transition": SubResource("Animation_ehqjd"),
 "transition": SubResource("Animation_snep8")
 }
 

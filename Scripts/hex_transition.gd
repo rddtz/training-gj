@@ -19,6 +19,18 @@ func fade_in(next : String, reset : bool):
 	animation_player.stop()
 	animation_player.play("transition")
 
+func first_tran():
+	next_scene = "res://Scenes/opening.tscn"
+	reset_scene = 0
+	animation_player.stop()
+	animation_player.play("first_transition")
+
+func zoom_in():
+	Global.zoom(3, .1)
+
+func zoom_out():
+	Global.zoom(2, .1)
+
 func change_scene():
 	if !reset_scene:
 		get_tree().change_scene_to_file(next_scene)

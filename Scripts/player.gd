@@ -7,6 +7,12 @@ const FRICTION = 30
 var stress_max := 100
 var stress_index := 0
 
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var death_timer: Timer = $DeathTimer
+var exploded := false
+var particles_death := preload("res://Scenes/death_particle.tscn")
+@onready var reset_timer: Timer = $ResetTimer
+
 func _physics_process(delta: float) -> void:
 	# adiciona a gravidade
 	if not is_on_floor(): velocity += get_gravity() * delta
@@ -20,6 +26,9 @@ func _physics_process(delta: float) -> void:
 	# se input == 0, aplica fricção à velocidade 
 	else: velocity.x = velocity.move_toward(Vector2.ZERO, FRICTION).x
 	playSprite(velocity, direction)
+		
+	death()
+	
 	move_and_slide()
 
 func get_mouse_angle() -> float:
@@ -49,3 +58,23 @@ func playSprite(velocity: Vector2, direction: int) -> void:
 	if velocity.y > 0: $AnimatedSprite2D.play("fall")
 	# sprite de pular
 	if velocity.y < 0: $AnimatedSprite2D.play("jump")
+	
+
+func death():
+	if stress_index >= stress_max && !exploded:
+		Global.zoom(3, .1)
+		Global.screen_shake(10)
+		animated_sprite_2d.modulate = Color.RED
+		if death_timer.time_left <= 0:
+			death_timer.start()
+
+
+func _on_death_timer_timeout() -> void:
+	exploded = true
+	animated_sprite_2d.modulate = Color(255, 255, 255, 0)
+	reset_timer.start()
+	Global.create_particles(particles_death, 20, 30, position.x, position.y, 0, 0, 0, 0)
+
+
+func _on_reset_timer_timeout() -> void:
+	Global.transition_diamond("", 1)

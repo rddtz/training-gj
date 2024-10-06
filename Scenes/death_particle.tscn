@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvsrcsdqvle53"]
+
+[ext_resource type="Script" path="res://Scripts/particle.gd" id="1_nrbjx"]
+[ext_resource type="Texture2D" uid="uid://dvrdg74kbb7kd" path="res://Assets/others/particle.png" id="2_gq4d3"]
+
+[node name="death_particle" type="Node2D"]
+script = ExtResource("1_nrbjx")
+sprite = ExtResource("2_gq4d3")
+color = Color(1, 0, 0, 1)
+max_direction = 360.0
+max_rotation = 360.0
+rotate_bool = true
+min_speed_rotation = 120.0
+max_speed_rotation = 360.0
+min_scale = 0.5
+max_scale = 2.0
+min_speed = 120.0
+max_speed = 180.0
+min_life = 30
+max_life = 60
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
