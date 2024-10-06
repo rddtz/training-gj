@@ -8,13 +8,15 @@ func _on_voltar_pressed() -> void:
 	
 
 func _on_sair_pressed() -> void:
-	Global.in_game = false
-	get_tree().change_scene_to_file("res://Scenes/menu_principal.tscn")
-	turnOff()
+	
+	if Global.paused:
+		Global.in_game = false
+		get_tree().change_scene_to_file("res://Scenes/menu_principal.tscn")
+		turnOff()
 	
 
 func _ready() -> void:
-	Global.in_game = true
+	Global.in_game = true 
 	pass
 
 
