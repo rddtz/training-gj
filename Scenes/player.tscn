@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bjceaim4xm5wi"]
+[gd_scene load_steps=21 format=3 uid="uid://bjceaim4xm5wi"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_f0khx"]
 [ext_resource type="Texture2D" uid="uid://0ai02i5tsntk" path="res://Assets/player/player_fall.png" id="2_a8h5t"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bta111bxbgh7p" path="res://Scenes/screen_shake.tscn" id="7_aqd8r"]
 [ext_resource type="PackedScene" uid="uid://bmcyiup8rwx72" path="res://Scenes/zoom.tscn" id="8_68l8d"]
 [ext_resource type="AudioStream" uid="uid://g7p12qalj3jj" path="res://Assets/sounds/sfx/sfx_scream.wav" id="10_8qmlw"]
+[ext_resource type="Script" path="res://Scripts/area_de_stress.gd" id="11_sr6u6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j0rx8"]
 atlas = ExtResource("2_a8h5t")
@@ -88,7 +89,11 @@ animations = [{
 radius = 8.0
 height = 34.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ebs4"]
+size = Vector2(307, 177.5)
+
 [node name="Player" type="CharacterBody2D"]
+z_index = 3
 collision_layer = 2
 script = ExtResource("1_f0khx")
 
@@ -125,5 +130,15 @@ one_shot = true
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_8qmlw")
 
+[node name="Area_de_Stress" type="Area2D" parent="."]
+collision_mask = 5
+script = ExtResource("11_sr6u6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_de_Stress"]
+position = Vector2(1, -22.75)
+shape = SubResource("RectangleShape2D_1ebs4")
+
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
 [connection signal="timeout" from="ResetTimer" to="." method="_on_reset_timer_timeout"]
+[connection signal="body_entered" from="Area_de_Stress" to="." method="_on_area_de_stress_body_entered"]
+[connection signal="body_exited" from="Area_de_Stress" to="." method="_on_area_de_stress_body_exited"]

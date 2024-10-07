@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://f124gmuslh7o"]
+[gd_scene load_steps=30 format=3 uid="uid://f124gmuslh7o"]
 
 [ext_resource type="Script" path="res://Scripts/inimigo_medroso.gd" id="1_758i6"]
 [ext_resource type="Texture2D" uid="uid://0f30iqb4kgmt" path="res://Assets/enemys/enemy_die_2.png" id="2_og22q"]
@@ -223,6 +223,9 @@ _data = {
 "up": SubResource("Animation_qo8fm")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3eyu5"]
+size = Vector2(144.375, 112.25)
+
 [node name="Inimigo_medroso" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_758i6")
@@ -230,7 +233,7 @@ script = ExtResource("1_758i6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_4qq4x")
 sprite_frames = SubResource("SpriteFrames_2qbeu")
-animation = &"idle"
+animation = &"caindo"
 autoplay = "idle"
 
 [node name="Física" type="CollisionShape2D" parent="."]
@@ -253,4 +256,14 @@ libraries = {
 "": SubResource("AnimationLibrary_d2r4e")
 }
 
+[node name="area_de_stress" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area_de_stress"]
+position = Vector2(0.1875, 0)
+shape = SubResource("RectangleShape2D_3eyu5")
+
 [connection signal="body_entered" from="Dano" to="." method="_on_dano_body_entered"]
+[connection signal="body_exited" from="Dano" to="." method="_on_dano_body_exited"]
+[connection signal="body_entered" from="area_de_stress" to="." method="_on_area_de_stress_body_entered"]
+[connection signal="body_exited" from="area_de_stress" to="." method="_on_area_de_stress_body_exited"]
