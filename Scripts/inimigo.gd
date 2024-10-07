@@ -21,6 +21,10 @@ var primeira_vez := 1
 var objeto : Node2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 var estressando := false
+var falled := 0
+
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
 
 func _ready() -> void:
 	#grade_node.change_grade()
@@ -56,6 +60,8 @@ func _physics_process(delta: float) -> void:
 		if objeto.name == 'Player' and objeto.inv == 0:
 			objeto.inv = 60
 			objeto.stress_index += 25 
+			objeto.animation_player.stop()
+			objeto.animation_player.play("hit")
 			if vida < maxvida:
 				vida += 1
 			#Rodando a animacao de aparecer a nota
@@ -101,3 +107,7 @@ func _on_area_de_stress_body_entered(body: Node2D) -> void:
 func _on_area_de_stress_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		estressando = false
+
+func fall():
+	animated_sprite_2d.play("caindo")
+	

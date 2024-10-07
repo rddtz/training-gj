@@ -77,7 +77,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ajyll")
 }],
-"loop": true,
+"loop": false,
 "name": &"caindo",
 "speed": 5.0
 }, {
@@ -234,7 +234,7 @@ grade_node = NodePath("GradeEnemy")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_4qq4x")
 sprite_frames = SubResource("SpriteFrames_2qbeu")
-animation = &"walk"
+animation = &"caindo"
 autoplay = "idle"
 
 [node name="Física" type="CollisionShape2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bjceaim4xm5wi"]
+[gd_scene load_steps=24 format=3 uid="uid://bjceaim4xm5wi"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_f0khx"]
 [ext_resource type="Texture2D" uid="uid://0ai02i5tsntk" path="res://Assets/player/player_fall.png" id="2_a8h5t"]
@@ -11,6 +11,42 @@
 [ext_resource type="PackedScene" uid="uid://bmcyiup8rwx72" path="res://Scenes/zoom.tscn" id="8_68l8d"]
 [ext_resource type="AudioStream" uid="uid://g7p12qalj3jj" path="res://Assets/sounds/sfx/sfx_scream.wav" id="10_8qmlw"]
 [ext_resource type="Script" path="res://Scripts/area_de_stress.gd" id="11_sr6u6"]
+
+[sub_resource type="Animation" id="Animation_pev8n"]
+resource_name = "hit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hgayc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fd8yo"]
+_data = {
+"RESET": SubResource("Animation_hgayc"),
+"hit": SubResource("Animation_pev8n")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j0rx8"]
 atlas = ExtResource("2_a8h5t")
@@ -96,6 +132,11 @@ size = Vector2(307, 177.5)
 z_index = 3
 collision_layer = 2
 script = ExtResource("1_f0khx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fd8yo")
+}
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ulg7w")

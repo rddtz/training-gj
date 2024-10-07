@@ -19,6 +19,10 @@ var particles_death := preload("res://Scenes/death_particle.tscn")
 var death_sound_played := false
 var enemy_in_sight := false
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+
+
 var objeto : Node2D
 
 func _physics_process(delta: float) -> void:

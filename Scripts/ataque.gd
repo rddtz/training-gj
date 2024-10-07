@@ -28,8 +28,9 @@ func _on_body_entered(body: Node2D) -> void:
 			body.animation_player.stop()
 			body.animation_player.play("hit")
 			destroy()
-		if body.vida == 0:
-			body.animation_player.play("caindo")
+		if body.vida == 0 && !body.falled:
+			body.fall()
 			body.state = 0
+			body.falled = 1
 	elif body.name != "Player":
 		destroy()
